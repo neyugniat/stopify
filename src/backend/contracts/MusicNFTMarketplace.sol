@@ -59,6 +59,8 @@ contract MusicNFTMarketplace is ERC721("DAppFi", "DAPP"), Ownable {
     }
 
     function resellToken(uint256 _tokenId, uint256 _price) external {
+        require(_price > 0, "Price must be greater than zero"); // Check for valid price
+
         require(
             ownerOf(_tokenId) == msg.sender,
             "Only the owner can resell the token"

@@ -1,0 +1,41 @@
+/* MyResales.css */
+
+.my-resales-container {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.tokens-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.token-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: 200px;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.token-card h3 {
+    font-size: 16px;
+    margin: 0 0 10px;
+}
+
+.token-card p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+.token-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.audio-player {
+    margin-top: 10px;
+}

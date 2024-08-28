@@ -9,6 +9,7 @@ import '../components/App'
 import Home from './Home'
 import { Flex, Layout } from 'antd'
 import MyTokens from './MyToken/MyToken'
+import MyResales from './MyResales/MyResales'
 const { Header, Footer, Sider, Content } = Layout
 
 function App() {
@@ -124,12 +125,12 @@ function App() {
                             />
                             <Route
                                 path="/my-resales"
-                                // element={
-                                //     <MyResales
-                                //         contract={contract}
-                                //         account={account}
-                                //     />
-                                // }
+                                element={
+                                    <MyResales
+                                        contract={contract}
+                                        account={account}
+                                    />
+                                }
                             />
                         </Routes>
                     )}

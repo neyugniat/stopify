@@ -7,12 +7,16 @@ import { Carousel } from 'antd'
 import './Home.css' // Import the CSS for carousel styling
 
 const Home = ({ contract }) => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum)
+
+    // Get the signer from the provider
+    const signer = provider.getSigner()
     const baseURI = 'https://gateway.pinata.cloud/ipfs/'
     const [metadata, setMetadata] = useState([])
     const [marketItems, setMarketItems] = useState(null)
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
-    const carouselRef = useRef(null) // Create a reference to the Carousel component
+    const carouselRef = useRef(null)
 
     const loadMetadata = async () => {
         try {
@@ -30,6 +34,14 @@ const Home = ({ contract }) => {
         try {
             // Get all unsold items/tokens
             const results = await contract.getAllUnsoldTokens()
+
+            // Debug: Check the structure of the results
+            console.log('Results:', results)
+
+            if (!results || !Array.isArray(results)) {
+                throw new Error('Unexpected response format from contract')
+            }
+
             const cids = metadataCID.items.map((item) => item.cid)
             const urls = cids.map((cid) => `${baseURI}${cid}`)
 
@@ -47,12 +59,16 @@ const Home = ({ contract }) => {
             }, {})
 
             const tokens = results.map((item) => {
-                const tokenId = item.tokenId.toNumber()
+                const tokenId = item.tokenId ? item.tokenId.toNumber() : null
                 const metadata = metadataMap[tokenId] || {}
+
+                // Debug: Check the item structure
+                console.log('Item:', item)
+
                 return {
                     tokenId,
                     seller: item.seller,
-                    priceInWei: item.price.toString(), // Store price in Wei
+                    priceInWei: item.price ? item.price.toString() : '0', // Handle undefined price
                     name: metadata.songTitle || 'Unknown Title',
                     audio: metadata.songUrl || '',
                     image: metadata.songCover || '',
@@ -86,10 +102,26 @@ const Home = ({ contract }) => {
             const priceInEther = item.price
             const priceInWei = ethers.utils.parseEther(priceInEther)
 
-            const tx = await contract.buyToken(item.tokenId, {
+            // Get the current nonce
+            const nonce = await provider.getTransactionCount(
+                signer.getAddress()
+            )
+
+            // Create a transaction object
+            const tx = {
+                nonce: nonce, // Set the nonce
+                gasLimit: 100000, // Set gas limit
+                gasPrice: ethers.utils.parseUnits('10', 'gwei'), // Set gas price
+                to: contract.address,
                 value: priceInWei,
-            })
-            await tx.wait()
+                data: contract.interface.encodeFunctionData('buyToken', [
+                    item.tokenId,
+                ]),
+            }
+
+            // Send the transaction
+            const txResponse = await signer.sendTransaction(tx)
+            await txResponse.wait()
             console.log('Transaction successful')
         } catch (error) {
             console.error('Error buying token:', error)

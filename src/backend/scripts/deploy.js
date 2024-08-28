@@ -9,7 +9,6 @@ async function main() {
         toWei(6),
         toWei(7),
     ]
-    let deploymentFees = toWei(prices.length * 0.01)
     const [deployer] = await ethers.getSigners()
     console.log('Deploying contracts with the account:', deployer.address)
     console.log('Account balance:', (await deployer.getBalance()).toString())
@@ -18,9 +17,7 @@ async function main() {
     const NFTMarketplaceFactory = await ethers.getContractFactory(
         'MusicNFTMarketplace'
     )
-    const nftMarketplace = await NFTMarketplaceFactory.deploy(prices, {
-        value: deploymentFees,
-    }) // No arguments here
+    const nftMarketplace = await NFTMarketplaceFactory.deploy(prices) // No arguments here
 
     console.log('Smart contract address:', nftMarketplace.address)
 

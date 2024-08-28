@@ -35,8 +35,7 @@ describe('MusicNFTMarketplace', function () {
         it('Should track name, symbol, and baseURI', async function () {
             const nftName = 'DAppFi'
             const nftSymbol = 'DAPP'
-            const baseURI =
-                'https://gateway.pinata.cloud/ipfs/QmUEfjDWDdu9uwThT4T772AtxRtnWqWe4Yh85vyQ6mmSbL'
+            const baseURI = 'https://gateway.pinata.cloud/ipfs/'
 
             expect(await nftMarketplace.name()).to.equal(nftName)
             expect(await nftMarketplace.symbol()).to.equal(nftSymbol)
@@ -86,11 +85,10 @@ describe('MusicNFTMarketplace', function () {
             expect(await nftMarketplace.ownerOf(0)).to.equal(user1.address)
         })
         it('Should fail when ether amount sent with transaction does not equal asking price', async function () {
-            // Fails when ether sent does not equal asking price
             await expect(
                 nftMarketplace.connect(user1).buyToken(0, { value: prices[1] })
             ).to.be.revertedWith(
-                'Please send the asking price in order to complete the purchase'
+                'Please send the correct price to complete the purchase'
             )
         })
     })
