@@ -1,0 +1,62 @@
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
+/* Gradient Background Styling */
+.App-header {
+    background: linear-gradient(
+        135deg,
+        #121212 0%,
+        #1db954 100%
+    ); /* Dark to green gradient */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    text-align: center;
+    color: #ffffff;
+}
+
+/* General Styles */
+.App {
+    text-align: center;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Spotify-like font */
+    color: #ffffff;
+}
+
+/* Logo Styling */
+.App-logo {
+    height: 40vmin;
+    pointer-events: none;
+    border-radius: 50%; /* Spotify uses circular logo design */
+    border: 2px solid #1db954; /* Spotify green border */
+    padding: 10px;
+    background: #000; /* Ensures the logo stands out */
+}
+
+/* Animation for Logo */
+@media (prefers-reduced-motion: no-preference) {
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes App-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Link Styling */
+.App-link {
+    color: #1db954; /* Spotify green */
+    text-decoration: none;
+}
+
+.App-link:hover {
+    text-decoration: underline;
+}

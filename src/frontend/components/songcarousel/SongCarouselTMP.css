@@ -1,0 +1,20 @@
+/* SongCarousel.css */
+.ant-carousel .slick-arrow {
+    background: rgba(0, 0, 0, 0.5); /* Background color of the arrows */
+    border-radius: 50%; /* Round shape of the arrows */
+    width: 30px; /* Width of the arrows */
+    height: 30px; /* Height of the arrows */
+    z-index: 10; /* Ensure arrows are above other elements */
+}
+
+.ant-carousel .slick-arrow:hover {
+    background: rgba(0, 0, 0, 0.7); /* Background color on hover */
+}
+
+.ant-carousel .slick-prev {
+    left: 10px; /* Position of the left arrow */
+}
+
+.ant-carousel .slick-next {
+    right: 10px; /* Position of the right arrow */
+}
