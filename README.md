@@ -20,5 +20,6 @@ Buy NFT
 
 Purchased NFT
 ![Description of GIF](assets/purchased_token.gif)
+
 Resell NFT
 ![Description of GIF](assets/resell_token.gif)
