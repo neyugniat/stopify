@@ -162,7 +162,7 @@ const Home = ({ contract }) => {
 
     return (
         <div>
-            <h1>THE ONLY GOOD MUSIC IN THE ENTIRE MTFK WORLD</h1>
+            <h1>THE ONLY GOOD MUSIC IN THE ENTIRE WORLD</h1>
             {marketItems && marketItems.length > 0 ? (
                 <div className="carousel-container">
                     <Carousel {...settings} ref={carouselRef}>
