@@ -10,7 +10,9 @@
 
 > Ganache running
 
-### 2. Deploy contract
+---
+
+### 2. Deploy Smart Contracts
 
 ```bash
 npm run deploy
@@ -18,20 +20,43 @@ npm run deploy
 
 ![Description of GIF](assets/deploy_contract.gif)
 
-Start Web App: `npm run start`
+---
+
+### 3. Start Web App
+
+```bash
+npm run start
+```
+
 ![Description of GIF](assets/run_start.gif)
 
-Stopify
+---
+
+## 🎬 Features Demo
+
+### 🏠 Stopify Home
+
 ![Description of GIF](assets/stopify.gif)
 
-Connect Wallet
+### 🔑 Connect Wallet
+
 ![Description of GIF](assets/login.gif)
 
-Buy NFT
+### 🎶 Buy NFT
+
 ![Description of GIF](assets/buy_nft.gif)
 
-Purchased NFT
+### 🎟️ Purchased NFTs
+
 ![Description of GIF](assets/purchased_token.gif)
 
-Resell NFT
+### 🔁 Resell NFT
+
 ![Description of GIF](assets/resell_token.gif)
+
+## 📦 Tech Stack
+
+    - Smart Contracts: Solidity
+    - Frontend: JavaScript, CSS
+    - Blockchain: Ganache / Ethereum
+    - Wallet: MetaMask
