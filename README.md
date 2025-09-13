@@ -56,7 +56,7 @@ npm run start
 
 ## 📦 Tech Stack
 
-    - Smart Contracts: Solidity
-    - Frontend: JavaScript, CSS
-    - Blockchain: Ganache / Ethereum
-    - Wallet: MetaMask
+- Smart Contracts: Solidity
+- Frontend: JavaScript, CSS
+- Blockchain: Ganache / Ethereum
+- Wallet: MetaMask
