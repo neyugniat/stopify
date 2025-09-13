@@ -1,9 +1,21 @@
-Just a small app for a blockchain's project. A music player web app built with Javascript, using Blockchain to store and manage data.
+# 🎵 Stopify – NFT Music Marketplace
 
-Start Ganache
+#### Just a small app for a blockchain's project. A music player web app built with Javascript, using Blockchain to store and manage data.
+
+## 🚀 Getting Started
+
+### 1. Start Ganache (local blockchain)
+
 ![Description of GIF](assets/ganache.png)
 
-Deploy contract: `npm run deploy`
+> Ganache running
+
+### 2. Deploy contract
+
+```bash
+npm run deploy
+```
+
 ![Description of GIF](assets/deploy_contract.gif)
 
 Start Web App: `npm run start`
